@@ -29,7 +29,7 @@ gem "jbuilder"
 
 gem 'simple_form', '~> 5.3'
 
-
+gem 'devise', '~> 4.9', '>= 4.9.3'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
