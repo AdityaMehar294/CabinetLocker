@@ -1,5 +1,7 @@
 
-<form action="<%= url_for(controller: 'docs', action: 'create') %>" method="post">
+<%= form_tag({ controller: 'docs', action: 'create' }, method: 'post') do %>
+  <%= csrf_meta_tags %>
+
   <label for="doc_title">Title:</label>
   <input type="text" id="doc_title" name="doc[title]" value="<%= @doc.title %>" required>
 
@@ -7,4 +9,4 @@
   <textarea id="doc_content" name="doc[content]" required><%= @doc.content %></textarea>
 
   <input type="submit" value="Create">
-</form>
+<% end %>
