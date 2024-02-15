@@ -1,5 +1,4 @@
 # config/initializers/simple_form.rb
-require 'simple_form'
 
 SimpleForm.setup do |config|
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|

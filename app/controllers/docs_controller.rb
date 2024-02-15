@@ -16,6 +16,7 @@ class DocsController < ApplicationController
 
   def create
     @doc = current_user.docs.build(doc_params)
+
     if @doc.save
       redirect_to @doc
     else
@@ -24,7 +25,7 @@ class DocsController < ApplicationController
   end
 
   def edit
-    @doc = Doc.find(params[:id])
+
   end
 
   def update
