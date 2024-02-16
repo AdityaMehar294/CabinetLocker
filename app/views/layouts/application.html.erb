@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cabinet</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <title>ReminderHub | Save your Document</title>
+    <%= stylesheet_link_tag "application.css", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tag %>
+    <%= turbo_include_tags %>
   </head>
-
   <body>
+    <header>
+      <div class="header_inner">
+        <%= link_to "DocumentLocker", root_path, id: 'logo' %>
+        
+        <nav>
+          <% if user_signed_in? %>
+            <%= link_to "Create Doc", new_doc_path %>
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+    
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="alert"><%= alert %></div>
+    
     <%= yield %>
   </body>
 </html>
